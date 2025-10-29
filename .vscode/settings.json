@@ -1,0 +1,101 @@
+{
+  // !! Aunque el vscode la ponga en gris, funciona la configuracion, la tengo aplicada, he comprobado algunos settings puestos aqui y estan funcionando
+
+  "editor": {
+    "fontSize": 13.5,
+    "minimap": {
+      "enabled": true
+    }, // Habilitar minimapa. hay gente que lo deshabilita, para ganar espacio horizontal, pero yo lo utlizo
+    "wordWrap": "off", // tiene un toggle en atajo con alt + z. sirve para cuando el texto es demasiado largo que se sale del viewport y lo pinta en la siguiente para visualizarlo sin "generar" una nueva linea
+    "formatOnPaste": true, // que se autoformatee cuando pega codigo automaticamente, sin esto se pone en el mismo nivel de indentacion
+    "linkedEditing": true,
+    "codeLens": true, // pone todas las referencias que tiene el metodo
+    "inlayHints": {
+      "enabled": "on"
+    },
+    "guides": {
+      "bracketPairs": "active",
+      "highlightActiveBracketPair": true,
+      "highlightActiveIndentation": true,
+      "bracketPairsHorizontal": true,
+      "indentation": true
+    }
+  },
+  "typescript": {
+    "suggest": {
+      "autoImports": true
+    },
+    "preferences": {
+      "importModuleSpecifier": "relative"
+    },
+    "updateImportsOnFileMove": {
+      "enabled": "always"
+    },
+    "referencesCodeLens": { // lo malo de esto de las referencias, es que no lee las llamadas que hay en los .html de los metodos del .ts, por lo demas funciona bien porque muestra en todos los archivos en los que se llama
+      "enabled": true, // pone todas las referencias que tiene el metodo
+      "showOnAllFunctions": true, // pone todas las referencias que tiene el metodo en todos los archivos
+    },
+    "implementationsCodeLens": {
+      "enabled": true
+    }
+  },
+  "workbench": {
+    "editor": {
+      "pinnedTabsOnSeparateRow": true,
+      "tabSizing": "shrink",
+      "highlightModifiedTabs": true,
+      "customLabels": {
+        "enabled": true
+      },
+      "tabSizingFixedMaxWidth": 40,
+      "revealIfOpen": true // abre en division vertical la referencia
+    },
+    "tree": {
+      "indent": 10, // indentacion de cada nivel del arbol en el explorador de archivos
+      "expandMode": "singleClick"
+    }
+  },
+  "debug": {
+    "onTaskErrors": "debugAnyway"
+  },
+  "editor.inlineSuggest": {
+    "enabled": true
+  },
+  "editor.suggestSelection": "first",
+  // ========== File Nesting ==========
+  // this might not be up to date with the repo, please check yourself
+  // https://github.com/antfu/vscode-file-nesting-config
+  // esto es para collapsar en el explorador de archivos, pone el .ts como archivo principal, el .css y .html como secundarios, permitiendo collapsar. no he conseguid que esten collapsados todos automaticamente al abrir la carpeta del componente
+  "explorer": {
+    "fileNesting": {
+      "enabled": true,
+      "expand": false,
+      "patterns": {
+        "*.component.ts": "$(capture).component.html, $(capture).component.spec.ts, $(capture).component.css, $(capture).component.scss, $(capture).component.sass, $(capture).component.less",
+        "*.module.ts": "$(capture).resolver.ts, $(capture).controller.ts, $(capture).service.ts",
+        "*.ts": "$(capture).js, $(capture).d.ts.map, $(capture).*.ts, $(capture)_*.js, $(capture)_*.ts",
+        "*.tsx": "$(capture).ts, $(capture).*.tsx, $(capture)_*.ts, $(capture)_*.tsx",
+        "*.vbproj": "*.config, *proj.user, appsettings.*, bundleconfig.json",
+        "readme*": "authors, backers*, changelog*, citation*, code_of_conduct*, codeowners, contributing*, contributors, copying, credits, governance.md, history.md, license*, maintainers, readme*, security.md, sponsors*"
+      }
+    },
+    "compactFolders": true
+  },
+  "update": {
+    "mode": "none"
+  },
+  "extensions": {
+    "autoCheckUpdates": false
+  },
+  "editor.gotoLocation": {
+    "multipleReferences": "gotoAndPeek"
+  }, // para ver las diferentes llamadas/referencias de un metodo/variable y que se quede abierta (?) TODO:Check si hace eso realmente, no entiendo lo que hace cada opcion posible
+  "files": {
+    "watcherExclude": { // evita la busqueda de todo el proyecto en las siguientes carpetas:
+      "**/.git/objects/**": true, // Excluye objetos de git para evitar problemas
+      "**/node_modules/**": true, // Excluye node_modules para mejorar el rendimiento
+      "**/dist/**": true, // Excluye la carpeta de salida
+      "**/.vs/**": true // Excluye archivos de Visual Studio
+    }
+  }
+}
