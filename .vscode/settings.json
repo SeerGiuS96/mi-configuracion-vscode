@@ -109,4 +109,5 @@
     }
   },
   "files.autoSave": "afterDelay" // guarda los cambios automaticamente tras 1 minuto
+  "references.preferredLocation": "view", // con el valor view lo visualizamos comodamente en el panel lateral
 }
