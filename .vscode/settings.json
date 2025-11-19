@@ -19,7 +19,7 @@
       "highlightActiveIndentation": true,
       "bracketPairsHorizontal": true,
       "indentation": true
-    }
+    },
   },
   "typescript": {
     "suggest": {
@@ -44,6 +44,16 @@
       "pinnedTabsOnSeparateRow": true,
       "tabSizing": "shrink",
       "highlightModifiedTabs": true,
+      "colorCustomizations":{
+        "tab": {
+          "activeModifiedBorder": "#ff0000",
+          "inactiveModifiedBorder": "#ff0000",
+          "unfocusedActiveModifiedBorder": "#ff0000",
+          "unfocusedInactiveModifiedBorder": "#ff0000",
+          "selectedBackground": "#FFFFFF",
+        }
+
+      },
       "customLabels": {
         "enabled": true
       },
@@ -97,5 +107,6 @@
       "**/dist/**": true, // Excluye la carpeta de salida
       "**/.vs/**": true // Excluye archivos de Visual Studio
     }
-  }
+  },
+  "files.autoSave": "afterDelay" // guarda los cambios automaticamente tras 1 minuto
 }
